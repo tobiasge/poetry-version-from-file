@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "poetry-version-from-file"
+version = "0.0.0"
+description = ""
+authors = ["Tobias Genannt <tobias.genannt@gmail.com>"]
+readme = "README.md"
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+poetry = "^1.8"
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.2.2"
+
+[build-system]
+requires = ["poetry-core", "poetry-version-from-file"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.plugins."poetry.plugin"]
+demo = "poetry_version_from_file.plugin:PoetryVersionFromFile"
+
+[tool.ruff]
+line-length = 100
+target-version = 'py311'
+
+[tool.ruff.lint]
+extend-select = ["I"]
