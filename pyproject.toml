@@ -5,6 +5,18 @@ description = ""
 authors = ["Tobias Genannt <tobias.genannt@gmail.com>"]
 readme = "README.md"
 license = "MIT"
+homepage = "https://github.com/tobiasge/poetry-version-from-file"
+keywords = [
+    "packaging",
+    "poetry-plugin",
+    "poetry"
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Software Development :: Build Tools"
+]
 
 [tool.poetry.dependencies]
 python = "^3.12"
@@ -18,7 +30,10 @@ requires = ["poetry-core", "poetry-version-from-file"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.plugins."poetry.plugin"]
-demo = "poetry_version_from_file.plugin:PoetryVersionFromFile"
+poetry-version-from-file = "poetry_version_from_file.plugin:PoetryVersionFromFile"
+
+[tool.poetry.urls]
+"Bug Tracker" = "https://github.com/tobiasge/poetry-version-from-file/issues"
 
 [tool.ruff]
 line-length = 100
