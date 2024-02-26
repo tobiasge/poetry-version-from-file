@@ -19,8 +19,11 @@ class PoetryVersionFromFile(Plugin):
             .get("plugins", {})
             .get("version-from-file", {})
         )
-        current_version_file = plugin_settings.get(VERSION_FILE_KEY, DEFAULT_VERSION_FILE)
+        if plugin_settings.get("enabled", "false") != "true":
+            # Plugin is not enblaed, just do nothing
+            return
 
+        current_version_file = plugin_settings.get(VERSION_FILE_KEY, DEFAULT_VERSION_FILE)
         if not os.path.isfile(current_version_file):
             io.write_error_line(f"Version file ({current_version_file}) is missing")
             poetry.package.version = INVALID_VERSION_MARKER
